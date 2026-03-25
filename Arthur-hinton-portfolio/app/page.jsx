@@ -4,28 +4,36 @@ import { useState, useEffect } from "react";
 
 const articles = [
   {
+    title: "Structures of Team as You Scale",
+    type: "Key Topic",
+    date: "2026",
+    url: "https://arthurhinton.notion.site/Structures-of-team-as-you-scale-257312de0603805eab5cc1b781de350f",
+    description:
+      "How the structure of a team needs to evolve as a company grows, and why what works at ten people breaks at fifty.",
+  },
+  {
     title: "The Danger of Drifting and the Power of a North Star",
     type: "Key Topic",
-    date: "Aug 2025",
-    url: "https://arthurhinton.notion.site/The-Danger-of-Drifting-and-the-Power-of-a-North-Star-243312de06038059ab28f6abdd48d395",
+    date: "2025",
+    url: "https://arthurhinton.notion.site/the-danger-of-drifting-and-the-power-of-a-north-star",
     description:
       "Why having a guiding north star is essential to avoiding complacency and building a life with direction and purpose.",
   },
   {
-    title: "Builders and Distributors: How to Build and Structure a Team",
+    title: "Career Capital",
     type: "Key Topic",
-    date: "Dec 2025",
-    url: "https://arthurhinton.notion.site/Builders-and-Distributors-2d5312de0603807f879fe1ca6088fe78",
+    date: "2025",
+    url: "https://arthurhinton.notion.site/Career-Capital-22c312de0603802aae96e72576be1277",
     description:
-      "Every early-stage business needs someone to build the thing and someone to sell it. Here's the framework for getting that right.",
+      "The skills, relationships, and reputation you build over time are your real assets. How to accumulate them deliberately.",
   },
   {
-    title: "Distribution & Growth Channels: Master Plan",
-    type: "Learning",
-    date: "Jan 2026",
-    url: "https://arthurhinton.notion.site/Distribution-Growth-Channels-Master-Plan-2dd312de060380f7ab2dc58372a08aa5",
+    title: "What Sets Humans Apart from AI?",
+    type: "Key Topic",
+    date: "2025",
+    url: "https://arthurhinton.notion.site/what-sets-individuals-apart",
     description:
-      "A comprehensive breakdown of every growth channel: when to use them, how to sequence them, and which are non-negotiable.",
+      "As AI gets better at almost everything, the question of what makes humans irreplaceable becomes more important than ever.",
   },
   {
     title: "2025: The Year To Experiment",
@@ -36,12 +44,20 @@ const articles = [
       "Reflections on what 2025 taught me about building, shipping fast, and developing as a founder.",
   },
   {
-    title: "Principles",
+    title: "2024: A Year for Learning",
     type: "Personal",
-    date: "Feb 2026",
-    url: "https://arthurhinton.notion.site/Principles-1f8312de060380eab3adfaf2665e3ec9",
+    date: "Jan 2025",
+    url: "https://arthurhinton.notion.site/2024-A-year-for-learning-16a312de06038034ab24ed2b46a178d2",
     description:
-      "The core principles that shape how I live, work, and make decisions every day.",
+      "A look back at a year defined by new challenges, hard lessons, and building the foundations for what came next.",
+  },
+  {
+    title: "2023: What a Year, a Pivotal Shift",
+    type: "Personal",
+    date: "Jan 2024",
+    url: "https://arthurhinton.notion.site/2023-What-a-year-a-pivotal-shift-16a312de060380e1acd4ebe096f336a0",
+    description:
+      "The year everything changed. A reflection on the decisions, pivots, and moments that set a new direction.",
   },
 ];
 
