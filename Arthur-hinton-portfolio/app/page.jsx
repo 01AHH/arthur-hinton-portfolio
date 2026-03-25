@@ -85,6 +85,33 @@ const companies = [
   },
 ];
 
+const podcasts = [
+  {
+    title: "Building Resilience: A Young Entrepreneur's Path from Early Ventures to Startup Success",
+    show: "Fail Wisdom Podcast",
+    date: "Nov 2024",
+    url: "https://open.spotify.com/episode/5anBXS1ul7Hyw4U6jnMaUh",
+    description:
+      "Covering the journey from launching a social media project at 14 through multiple startups, with practical advice on resilience, cold calling, validating products, and managing costs.",
+  },
+  {
+    title: "episode one w/ Arthur Hinton",
+    show: "ABCD",
+    date: "2024",
+    url: "https://open.spotify.com/episode/7EQ4zdrQ02mw0wwPPWKnjB",
+    description:
+      "Discussing the startup journey, the creation of ActiveMate, and how to manage a demanding schedule across multiple professional commitments.",
+  },
+  {
+    title: "#15 - Arthur Hinton ('19)",
+    show: "The OSCA Podcast",
+    date: "2024",
+    url: "https://open.spotify.com/episode/7qW58dsunWY395DqYpTHhQ",
+    description:
+      "Running 100km from Melbourne to Portsea to raise awareness and funds for the Australian Alopecia Areata Foundation, and what it means to build resilience through endurance.",
+  },
+];
+
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -92,7 +119,7 @@ export default function Portfolio() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ["home", "about", "experience", "writing", "contact"];
+      const sections = ["home", "experience", "writing", "podcasts", "contact"];
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
@@ -106,9 +133,10 @@ export default function Portfolio() {
   }, []);
 
   const navLinks = [
-    { href: "#about", label: "About" },
+    { href: "/looking-for", label: "Looking For", external: true },
     { href: "#experience", label: "Experience" },
     { href: "#writing", label: "Writing" },
+    { href: "#podcasts", label: "Podcasts" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -130,12 +158,12 @@ export default function Portfolio() {
             Arthur Hinton
           </a>
           <div className="flex gap-7">
-            {navLinks.map(({ href, label }) => (
+            {navLinks.map(({ href, label, external }) => (
               <a
                 key={href}
                 href={href}
                 className={`text-sm transition-colors ${
-                  activeSection === href.replace("#", "")
+                  !external && activeSection === href.replace("#", "")
                     ? "text-gray-900 font-medium"
                     : "text-gray-400 hover:text-gray-700"
                 }`}
@@ -184,49 +212,12 @@ export default function Portfolio() {
             >
               Get in touch
             </a>
-          </div>
-        </section>
-
-        <div className="border-t border-gray-100" />
-
-        {/* ABOUT */}
-        <section id="about" className="py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
-            What I'm Looking For
-          </p>
-          <div className="space-y-5 text-gray-600 leading-relaxed">
-            <p>
-              I want a growth role where I'm not just analysing, I'm actually
-              making the changes. That means three things to me:
-            </p>
-            <div className="space-y-4 pl-5 border-l-2 border-gray-100 py-1">
-              <div>
-                <p className="font-medium text-gray-900 mb-0.5">Product-led growth.</p>
-                <p className="text-sm">
-                  Building new tools and features that directly impact how users
-                  onboard, activate, and expand, not just measuring what's already there.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-gray-900 mb-0.5">Channel development.</p>
-                <p className="text-sm">
-                  Finding and scaling new acquisition channels so the business
-                  isn't reliant on a single source of growth.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-gray-900 mb-0.5">New revenue streams.</p>
-                <p className="text-sm">
-                  Identifying and building out entirely new ways the company can
-                  generate income outside of its core model.
-                </p>
-              </div>
-            </div>
-            <p>
-              My north star is to become exceptional, building companies and
-              tools that have a real impact on the world, and teaching others
-              how to do the same.
-            </p>
+            <a
+              href="/looking-for"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 border border-gray-200 text-sm rounded-full hover:border-gray-400 transition-colors text-gray-700"
+            >
+              What I'm looking for →
+            </a>
           </div>
         </section>
 
@@ -311,6 +302,42 @@ export default function Portfolio() {
 
         <div className="border-t border-gray-100" />
 
+        {/* PODCASTS & PR */}
+        <section id="podcasts" className="py-20">
+          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
+            Podcasts & PR
+          </p>
+          <div className="space-y-8">
+            {podcasts.map((ep, i) => (
+              <a
+                key={i}
+                href={ep.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div className="flex gap-4 justify-between items-start">
+                  <div className="min-w-0">
+                    <h3 className="font-medium text-gray-900 group-hover:text-gray-500 transition-colors leading-snug mb-1.5">
+                      {ep.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      {ep.description}
+                    </p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <p className="text-xs text-gray-400 whitespace-nowrap">{ep.date}</p>
+                    <p className="text-xs text-gray-300 mt-0.5">{ep.show}</p>
+                  </div>
+                </div>
+                <div className="mt-5 h-px bg-gray-100" />
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <div className="border-t border-gray-100" />
+
         {/* CONTACT */}
         <section id="contact" className="py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
@@ -318,7 +345,7 @@ export default function Portfolio() {
           </p>
           <p className="text-gray-600 leading-relaxed mb-8 max-w-md">
             I'm currently open to new opportunities. If you're building
-            something that needs to grow across channels, products and revenue. I'd
+            something that needs to grow across channels, products and revenue, I'd
             love to hear about it.
           </p>
           <div className="flex flex-col gap-3">
