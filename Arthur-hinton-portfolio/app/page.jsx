@@ -64,6 +64,7 @@ const articles = [
 const experience = [
   {
     company: "Slice Pay",
+    url: "https://slicepay.travel",
     role: "Growth & Operations",
     bullets: [
       "B2B partnership growth and merchant acquisition strategy",
@@ -74,6 +75,7 @@ const experience = [
   },
   {
     company: "Paylater Travel",
+    url: "https://paylatertravel.com.au",
     role: "Growth Specialist",
     bullets: [
       "Built the referral engine from scratch, scaled from 0 to 200+ referrals/month",
@@ -87,16 +89,19 @@ const experience = [
 const companies = [
   {
     name: "Empty Labs",
+    url: "https://mtlabs.co",
     description:
       "Growing multiple AI-enabled businesses across B2B and B2C to test and build growth skills at speed.",
   },
   {
     name: "Ascendify",
+    url: "https://www.linkedin.com/in/arthur-hinton/",
     description:
       "B2B startup outsourcing agency helping companies hire and manage affordable offshore teams.",
   },
   {
     name: "ActiveMate",
+    url: "https://www.linkedin.com/in/arthur-hinton/",
     description: "B2C personalised running coaching app.",
   },
 ];
@@ -248,7 +253,11 @@ export default function Portfolio() {
             {experience.map((job) => (
               <div key={job.company}>
                 <div className="flex justify-between items-baseline mb-3 gap-4">
-                  <h3 className="font-semibold text-gray-900">{job.company}</h3>
+                  <h3 className="font-semibold text-gray-900">
+                    <a href={job.url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors">
+                      {job.company}
+                    </a>
+                  </h3>
                   <span className="text-sm text-gray-400 shrink-0">{job.role}</span>
                 </div>
                 <ul className="space-y-2">
@@ -270,7 +279,9 @@ export default function Portfolio() {
               <div className="space-y-4">
                 {companies.map((c) => (
                   <div key={c.name} className="text-sm">
-                    <span className="font-medium text-gray-800">{c.name}</span>
+                    <a href={c.url} target="_blank" rel="noopener noreferrer" className="font-medium text-gray-800 hover:text-gray-500 transition-colors">
+                      {c.name}
+                    </a>
                     <span className="text-gray-300 mx-2">·</span>
                     <span className="text-gray-600">{c.description}</span>
                   </div>
