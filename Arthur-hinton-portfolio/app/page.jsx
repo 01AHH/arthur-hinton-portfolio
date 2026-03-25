@@ -12,6 +12,14 @@ const articles = [
       "How the structure of a team needs to evolve as a company grows, and why what works at ten people breaks at fifty.",
   },
   {
+    title: "2025: The Year To Experiment",
+    type: "Personal",
+    date: "Jan 2026",
+    url: "https://arthurhinton.notion.site/2025-The-Year-To-Experiment-2d4312de06038086830cff5badd449cf",
+    description:
+      "Reflections on what 2025 taught me about building, shipping fast, and developing as a founder.",
+  },
+  {
     title: "The Danger of Drifting and the Power of a North Star",
     type: "Key Topic",
     date: "2025",
@@ -34,14 +42,6 @@ const articles = [
     url: "https://arthurhinton.notion.site/what-sets-individuals-apart",
     description:
       "As AI gets better at almost everything, the question of what makes humans irreplaceable becomes more important than ever.",
-  },
-  {
-    title: "2025: The Year To Experiment",
-    type: "Personal",
-    date: "Jan 2026",
-    url: "https://arthurhinton.notion.site/2025-The-Year-To-Experiment-2d4312de06038086830cff5badd449cf",
-    description:
-      "Reflections on what 2025 taught me about building, shipping fast, and developing as a founder.",
   },
   {
     title: "2024: A Year for Learning",
@@ -74,7 +74,7 @@ const experience = [
   },
   {
     company: "Paylater Travel",
-    role: "Growth Lead",
+    role: "Growth Specialist",
     bullets: [
       "Built the referral engine from scratch, scaled from 0 to 200+ referrals/month",
       "Developed the creative engine to feed both organic and paid channels",
