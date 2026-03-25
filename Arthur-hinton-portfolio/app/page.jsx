@@ -12,7 +12,7 @@ const articles = [
       "Why having a guiding north star is essential to avoiding complacency and building a life with direction and purpose.",
   },
   {
-    title: "Builders and Distributors — How to Build and Structure a Team",
+    title: "Builders and Distributors: How to Build and Structure a Team",
     type: "Key Topic",
     date: "Dec 2025",
     url: "https://arthurhinton.notion.site/Builders-and-Distributors-2d5312de0603807f879fe1ca6088fe78",
@@ -20,12 +20,12 @@ const articles = [
       "Every early-stage business needs someone to build the thing and someone to sell it. Here's the framework for getting that right.",
   },
   {
-    title: "Distribution & Growth Channels — Master Plan",
+    title: "Distribution & Growth Channels: Master Plan",
     type: "Learning",
     date: "Jan 2026",
     url: "https://arthurhinton.notion.site/Distribution-Growth-Channels-Master-Plan-2dd312de060380f7ab2dc58372a08aa5",
     description:
-      "A comprehensive breakdown of every growth channel — when to use them, how to sequence them, and which are non-negotiable.",
+      "A comprehensive breakdown of every growth channel: when to use them, how to sequence them, and which are non-negotiable.",
   },
   {
     title: "2025: The Year To Experiment",
@@ -60,7 +60,7 @@ const experience = [
     company: "Paylater Travel",
     role: "Growth Lead",
     bullets: [
-      "Built the referral engine from scratch — scaled from 0 to 200+ referrals/month",
+      "Built the referral engine from scratch, scaled from 0 to 200+ referrals/month",
       "Developed the creative engine to feed both organic and paid channels",
       "Ran and scaled the Meta paid acquisition engine",
       "Built out the influencer engine as part of the referral and creative mix",
@@ -150,6 +150,11 @@ export default function Portfolio() {
       <main className="max-w-2xl mx-auto px-6">
         {/* HERO */}
         <section id="home" className="pt-36 pb-24">
+          <img
+            src="/profile.jpg"
+            alt="Arthur Hinton"
+            className="w-20 h-20 rounded-full object-cover mb-8 grayscale"
+          />
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
             Growth · Operations · Builder
           </p>
@@ -191,7 +196,7 @@ export default function Portfolio() {
           </p>
           <div className="space-y-5 text-gray-600 leading-relaxed">
             <p>
-              I want a growth role where I'm not just analysing — I'm actually
+              I want a growth role where I'm not just analysing, I'm actually
               making the changes. That means three things to me:
             </p>
             <div className="space-y-4 pl-5 border-l-2 border-gray-100 py-1">
@@ -199,7 +204,7 @@ export default function Portfolio() {
                 <p className="font-medium text-gray-900 mb-0.5">Product-led growth.</p>
                 <p className="text-sm">
                   Building new tools and features that directly impact how users
-                  onboard, activate, and expand — not just measuring what's already there.
+                  onboard, activate, and expand, not just measuring what's already there.
                 </p>
               </div>
               <div>
@@ -218,7 +223,7 @@ export default function Portfolio() {
               </div>
             </div>
             <p>
-              My north star is to become exceptional — building companies and
+              My north star is to become exceptional, building companies and
               tools that have a real impact on the world, and teaching others
               how to do the same.
             </p>
@@ -313,7 +318,7 @@ export default function Portfolio() {
           </p>
           <p className="text-gray-600 leading-relaxed mb-8 max-w-md">
             I'm currently open to new opportunities. If you're building
-            something that needs to grow — channels, products, revenue — I'd
+            something that needs to grow across channels, products and revenue. I'd
             love to hear about it.
           </p>
           <div className="flex flex-col gap-3">
