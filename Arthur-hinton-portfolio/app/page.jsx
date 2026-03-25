@@ -136,6 +136,7 @@ const podcasts = [
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -169,7 +170,7 @@ export default function Portfolio() {
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-          scrolled
+          scrolled || menuOpen
             ? "bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm"
             : "bg-transparent"
         }`}
@@ -178,7 +179,9 @@ export default function Portfolio() {
           <a href="#home" className="font-semibold text-sm tracking-tight text-gray-900">
             Arthur Hinton
           </a>
-          <div className="flex gap-7">
+
+          {/* Desktop nav */}
+          <div className="hidden sm:flex gap-7">
             {navLinks.map(({ href, label, external }) => (
               <a
                 key={href}
@@ -193,49 +196,76 @@ export default function Portfolio() {
               </a>
             ))}
           </div>
+
+          {/* Hamburger */}
+          <button
+            className="sm:hidden flex flex-col gap-1.5 p-1"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-5 h-px bg-gray-700 transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-5 h-px bg-gray-700 transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-5 h-px bg-gray-700 transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
         </div>
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="sm:hidden border-t border-gray-100 bg-white/95 backdrop-blur px-6 py-4 flex flex-col gap-4">
+            {navLinks.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors py-1"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
 
-      <main className="max-w-2xl mx-auto px-6">
+      <main className="max-w-2xl mx-auto px-5 sm:px-6">
         {/* HERO */}
-        <section id="home" className="pt-36 pb-24">
+        <section id="home" className="pt-28 sm:pt-36 pb-16 sm:pb-24">
           <img
             src="/profile.jpg"
             alt="Arthur Hinton"
-            className="w-20 h-20 rounded-full object-cover mb-8 grayscale"
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover mb-6 sm:mb-8 grayscale"
           />
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 sm:mb-4">
             Growth · Operations · Builder
           </p>
-          <h1 className="text-4xl font-bold tracking-tight leading-tight mb-5">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4 sm:mb-5">
             Arthur Hinton
           </h1>
-          <p className="text-lg text-gray-600 leading-relaxed max-w-lg mb-3">
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg mb-3">
             I build growth engines, find new revenue streams, and ship products
             that compound. I've scaled referral channels from zero, built paid
             acquisition machines, and founded companies from scratch.
           </p>
-          <p className="text-sm text-gray-400 leading-relaxed max-w-lg mb-10">
+          <p className="text-sm text-gray-400 leading-relaxed max-w-lg mb-8 sm:mb-10">
             Currently looking for a senior growth role where I can do all three.
           </p>
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             <a
               href="https://www.linkedin.com/in/arthur-hinton/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gray-900 text-white text-sm rounded-full hover:bg-gray-700 transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 bg-gray-900 text-white text-sm rounded-full hover:bg-gray-700 transition-colors font-medium"
             >
               LinkedIn ↗
             </a>
             <a
               href="mailto:arthur.h.hinton@gmail.com"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 border border-gray-200 text-sm rounded-full hover:border-gray-400 transition-colors text-gray-700"
+              className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 border border-gray-200 text-sm rounded-full hover:border-gray-400 transition-colors text-gray-700"
             >
               Get in touch
             </a>
             <a
               href="/looking-for"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 border border-gray-200 text-sm rounded-full hover:border-gray-400 transition-colors text-gray-700"
+              className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 border border-gray-200 text-sm rounded-full hover:border-gray-400 transition-colors text-gray-700"
             >
               What I'm looking for →
             </a>
@@ -245,20 +275,20 @@ export default function Portfolio() {
         <div className="border-t border-gray-100" />
 
         {/* EXPERIENCE */}
-        <section id="experience" className="py-20">
+        <section id="experience" className="py-14 sm:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
             Experience
           </p>
-          <div className="space-y-12">
+          <div className="space-y-10 sm:space-y-12">
             {experience.map((job) => (
               <div key={job.company}>
-                <div className="flex justify-between items-baseline mb-3 gap-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-3 gap-0.5 sm:gap-4">
                   <h3 className="font-semibold text-gray-900">
                     <a href={job.url} target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors">
                       {job.company}
                     </a>
                   </h3>
-                  <span className="text-sm text-gray-400 shrink-0">{job.role}</span>
+                  <span className="text-sm text-gray-400">{job.role}</span>
                 </div>
                 <ul className="space-y-2">
                   {job.bullets.map((b, i) => (
@@ -272,9 +302,9 @@ export default function Portfolio() {
             ))}
 
             <div>
-              <div className="flex justify-between items-baseline mb-3 gap-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-3 gap-0.5 sm:gap-4">
                 <h3 className="font-semibold text-gray-900">Founder</h3>
-                <span className="text-sm text-gray-400 shrink-0">Multiple companies</span>
+                <span className="text-sm text-gray-400">Multiple companies</span>
               </div>
               <div className="space-y-4">
                 {companies.map((c) => (
@@ -294,11 +324,11 @@ export default function Portfolio() {
         <div className="border-t border-gray-100" />
 
         {/* WRITING */}
-        <section id="writing" className="py-20">
+        <section id="writing" className="py-14 sm:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
             Writing
           </p>
-          <div className="space-y-8">
+          <div className="space-y-7 sm:space-y-8">
             {articles.map((article, i) => (
               <a
                 key={i}
@@ -307,7 +337,7 @@ export default function Portfolio() {
                 rel="noopener noreferrer"
                 className="group block"
               >
-                <div className="flex gap-4 justify-between items-start">
+                <div className="flex flex-col sm:flex-row sm:gap-4 sm:justify-between sm:items-start">
                   <div className="min-w-0">
                     <h3 className="font-medium text-gray-900 group-hover:text-gray-500 transition-colors leading-snug mb-1.5">
                       {article.title}
@@ -316,9 +346,9 @@ export default function Portfolio() {
                       {article.description}
                     </p>
                   </div>
-                  <div className="text-right shrink-0">
+                  <div className="flex sm:flex-col sm:text-right gap-2 sm:gap-0 mt-2 sm:mt-0 shrink-0">
                     <p className="text-xs text-gray-400 whitespace-nowrap">{article.date}</p>
-                    <p className="text-xs text-gray-300 mt-0.5">{article.type}</p>
+                    <p className="text-xs text-gray-300 sm:mt-0.5">{article.type}</p>
                   </div>
                 </div>
                 <div className="mt-5 h-px bg-gray-100" />
@@ -330,11 +360,11 @@ export default function Portfolio() {
         <div className="border-t border-gray-100" />
 
         {/* PODCASTS & PR */}
-        <section id="podcasts" className="py-20">
+        <section id="podcasts" className="py-14 sm:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
             Podcasts & PR
           </p>
-          <div className="space-y-8">
+          <div className="space-y-7 sm:space-y-8">
             {podcasts.map((ep, i) => (
               <a
                 key={i}
@@ -343,7 +373,7 @@ export default function Portfolio() {
                 rel="noopener noreferrer"
                 className="group block"
               >
-                <div className="flex gap-4 justify-between items-start">
+                <div className="flex flex-col sm:flex-row sm:gap-4 sm:justify-between sm:items-start">
                   <div className="min-w-0">
                     <h3 className="font-medium text-gray-900 group-hover:text-gray-500 transition-colors leading-snug mb-1.5">
                       {ep.title}
@@ -352,9 +382,9 @@ export default function Portfolio() {
                       {ep.description}
                     </p>
                   </div>
-                  <div className="text-right shrink-0">
+                  <div className="flex sm:flex-col sm:text-right gap-2 sm:gap-0 mt-2 sm:mt-0 shrink-0">
                     <p className="text-xs text-gray-400 whitespace-nowrap">{ep.date}</p>
-                    <p className="text-xs text-gray-300 mt-0.5">{ep.show}</p>
+                    <p className="text-xs text-gray-300 sm:mt-0.5">{ep.show}</p>
                   </div>
                 </div>
                 <div className="mt-5 h-px bg-gray-100" />
@@ -366,7 +396,7 @@ export default function Portfolio() {
         <div className="border-t border-gray-100" />
 
         {/* CONTACT */}
-        <section id="contact" className="py-20">
+        <section id="contact" className="py-14 sm:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
             Contact
           </p>
@@ -396,7 +426,7 @@ export default function Portfolio() {
 
       {/* FOOTER */}
       <footer className="border-t border-gray-100 py-8">
-        <div className="max-w-2xl mx-auto px-6 flex justify-between items-center">
+        <div className="max-w-2xl mx-auto px-5 sm:px-6 flex justify-between items-center">
           <span className="text-xs text-gray-400">Arthur Hinton</span>
           <span className="text-xs text-gray-300">© {new Date().getFullYear()}</span>
         </div>

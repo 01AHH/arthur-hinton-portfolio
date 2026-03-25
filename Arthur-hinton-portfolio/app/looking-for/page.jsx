@@ -1,6 +1,17 @@
 "use client";
 
+import { useState } from "react";
+
 export default function LookingFor() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/#experience", label: "Experience" },
+    { href: "/#writing", label: "Writing" },
+    { href: "/#podcasts", label: "Podcasts" },
+    { href: "/#contact", label: "Contact" },
+  ];
+
   return (
     <div
       style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
@@ -11,29 +22,59 @@ export default function LookingFor() {
           <a href="/" className="font-semibold text-sm tracking-tight text-gray-900">
             Arthur Hinton
           </a>
-          <div className="flex gap-7">
-            <a href="/#experience" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Experience</a>
-            <a href="/#writing" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Writing</a>
-            <a href="/#podcasts" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Podcasts</a>
-            <a href="/#contact" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">Contact</a>
+
+          {/* Desktop nav */}
+          <div className="hidden sm:flex gap-7">
+            {navLinks.map(({ href, label }) => (
+              <a key={href} href={href} className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
+                {label}
+              </a>
+            ))}
           </div>
+
+          {/* Hamburger */}
+          <button
+            className="sm:hidden flex flex-col gap-1.5 p-1"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`block w-5 h-px bg-gray-700 transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-5 h-px bg-gray-700 transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-5 h-px bg-gray-700 transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
         </div>
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="sm:hidden border-t border-gray-100 bg-white/95 backdrop-blur px-6 py-4 flex flex-col gap-4">
+            {navLinks.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors py-1"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
 
-      <main className="max-w-2xl mx-auto px-6 pt-36 pb-24">
+      <main className="max-w-2xl mx-auto px-5 sm:px-6 pt-28 sm:pt-36 pb-16 sm:pb-24">
         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">
           What I'm Looking For
         </p>
-        <h1 className="text-4xl font-bold tracking-tight leading-tight mb-10">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-8 sm:mb-10">
           The right growth role.
         </h1>
 
         <div className="space-y-10 text-gray-600 leading-relaxed">
           <div>
-            <p className="text-lg mb-4">
+            <p className="text-base sm:text-lg mb-4">
               I want a growth role where I'm not just analysing, I'm actually making the changes. That means three things to me:
             </p>
-            <div className="space-y-6 pl-5 border-l-2 border-gray-100 py-1">
+            <div className="space-y-6 pl-4 sm:pl-5 border-l-2 border-gray-100 py-1">
               <div>
                 <p className="font-medium text-gray-900 mb-1">Product-led growth.</p>
                 <p className="text-sm">
@@ -59,7 +100,7 @@ export default function LookingFor() {
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">
               Background
             </p>
-            <div className="space-y-4">
+            <div className="space-y-4 text-sm sm:text-base">
               <p>
                 I started building at 14. My first business was selling drinks at school, which taught me more about pricing, cost management, and customer behaviour than most courses ever could.
               </p>
@@ -79,18 +120,18 @@ export default function LookingFor() {
           </div>
 
           <div className="border-t border-gray-100 pt-10">
-            <div className="flex gap-3 flex-wrap">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               <a
                 href="https://www.linkedin.com/in/arthur-hinton/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 bg-gray-900 text-white text-sm rounded-full hover:bg-gray-700 transition-colors font-medium"
+                className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 bg-gray-900 text-white text-sm rounded-full hover:bg-gray-700 transition-colors font-medium"
               >
                 LinkedIn ↗
               </a>
               <a
                 href="mailto:arthur.h.hinton@gmail.com"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 border border-gray-200 text-sm rounded-full hover:border-gray-400 transition-colors text-gray-700"
+                className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 border border-gray-200 text-sm rounded-full hover:border-gray-400 transition-colors text-gray-700"
               >
                 Get in touch
               </a>
@@ -100,7 +141,7 @@ export default function LookingFor() {
       </main>
 
       <footer className="border-t border-gray-100 py-8">
-        <div className="max-w-2xl mx-auto px-6 flex justify-between items-center">
+        <div className="max-w-2xl mx-auto px-5 sm:px-6 flex justify-between items-center">
           <span className="text-xs text-gray-400">Arthur Hinton</span>
           <span className="text-xs text-gray-300">© {new Date().getFullYear()}</span>
         </div>
