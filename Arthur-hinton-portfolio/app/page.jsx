@@ -89,7 +89,7 @@ const experience = [
 const companies = [
   {
     name: "Empty Labs",
-    url: "https://mtlabs.co",
+    url: "https://emptylabs.co/",
     description:
       "Growing multiple AI-enabled businesses across B2B and B2C to test and build growth skills at speed.",
   },
