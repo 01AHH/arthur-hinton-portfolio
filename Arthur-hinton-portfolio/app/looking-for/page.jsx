@@ -13,10 +13,7 @@ export default function LookingFor() {
   ];
 
   return (
-    <div
-      style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
-      className="min-h-screen bg-white text-gray-900"
-    >
+    <div className="min-h-screen bg-white text-gray-900">
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
         <div className="max-w-2xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="/" className="font-semibold text-sm tracking-tight text-gray-900">

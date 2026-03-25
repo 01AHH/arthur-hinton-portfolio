@@ -163,10 +163,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <div
-      style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
-      className="min-h-screen bg-white text-gray-900"
-    >
+    <div className="min-h-screen bg-white text-gray-900">
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
