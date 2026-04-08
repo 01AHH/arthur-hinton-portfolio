@@ -10,6 +10,7 @@ export default function LookingFor() {
     { href: "/#writing", label: "Writing" },
     { href: "/#podcasts", label: "Podcasts" },
     { href: "/#contact", label: "Contact" },
+    { href: "/cv", label: "CV" },
   ];
 
   return (
@@ -63,34 +64,29 @@ export default function LookingFor() {
           What I'm Looking For
         </p>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-8 sm:mb-10">
-          The right growth role.
+          The best people in the world.
         </h1>
 
         <div className="space-y-10 text-gray-600 leading-relaxed">
-          <div>
-            <p className="text-base sm:text-lg mb-4">
-              I want a growth role where I'm not just analysing, I'm actually making the changes. That means three things to me:
+          <div className="space-y-5 text-base sm:text-lg">
+            <p>
+              I'm looking to work with the best product and growth people in the world.
             </p>
-            <div className="space-y-6 pl-4 sm:pl-5 border-l-2 border-gray-100 py-1">
-              <div>
-                <p className="font-medium text-gray-900 mb-1">Product-led growth.</p>
-                <p className="text-sm">
-                  Building new tools and features that directly impact how users onboard, activate, and expand, not just measuring what's already there.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-gray-900 mb-1">Channel development.</p>
-                <p className="text-sm">
-                  Finding and scaling new acquisition channels so the business isn't reliant on a single source of growth.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-gray-900 mb-1">New revenue streams.</p>
-                <p className="text-sm">
-                  Identifying and building out entirely new ways the company can generate income outside of its core model.
-                </p>
-              </div>
-            </div>
+            <p>
+              Not because it sounds impressive. Because it's the only environment where real learning happens.
+            </p>
+            <p>
+              When you're around people who are genuinely exceptional — who think faster, hold higher standards, and refuse to settle — you can't stay where you are. The bar rises. Comfort becomes impossible. You're either growing or you're falling behind, and that pressure is the point.
+            </p>
+            <p>
+              I've seen what it does to a room. The best people don't just perform at a higher level themselves — they pull everyone around them up. They make mediocrity feel uncomfortable. They make you want to be better, not because anyone asked you to, but because the standard is just there, visible, every day.
+            </p>
+            <p>
+              That's the environment I'm looking for. One where everyone is trying to become their best self, and where that expectation is shared without it needing to be said.
+            </p>
+            <p>
+              Learning doesn't come from easy rooms. It never has.
+            </p>
           </div>
 
           <div className="border-t border-gray-100 pt-10">
@@ -111,7 +107,10 @@ export default function LookingFor() {
                 Alongside that, I run Empty Labs, where I build and test AI-enabled businesses across B2B and B2C to sharpen my skills at speed.
               </p>
               <p>
-                My north star is to become exceptional, building companies and tools that have a real impact on the world, and teaching others how to do the same.
+                The thread through all of it is the same: I learn most when I'm operating at the edge of what I know, alongside people who are further along than I am. Every role, every project, every co-founder has taught me that. The best teachers aren't always in classrooms — they're the people next to you who hold a standard you haven't reached yet.
+              </p>
+              <p>
+                My north star is to become exceptional — to build companies and tools that have a real impact on the world, and to do it alongside people worth learning from.
               </p>
             </div>
           </div>
