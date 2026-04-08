@@ -76,10 +76,10 @@ export default function LookingFor() {
               Not because it sounds impressive. Because it's the only environment where real learning happens.
             </p>
             <p>
-              When you're around people who are genuinely exceptional — who think faster, hold higher standards, and refuse to settle — you can't stay where you are. The bar rises. Comfort becomes impossible. You're either growing or you're falling behind, and that pressure is the point.
+              When you're around people who are genuinely exceptional, who think faster, hold higher standards, and refuse to settle, you can't stay where you are. The bar rises. Comfort becomes impossible. You're either growing or you're falling behind, and that pressure is the point.
             </p>
             <p>
-              I've seen what it does to a room. The best people don't just perform at a higher level themselves — they pull everyone around them up. They make mediocrity feel uncomfortable. They make you want to be better, not because anyone asked you to, but because the standard is just there, visible, every day.
+              I've seen what it does to a room. The best people don't just perform at a higher level themselves. They pull everyone around them up. They make mediocrity feel uncomfortable. They make you want to be better, not because anyone asked you to, but because the standard is just there, visible, every day.
             </p>
             <p>
               That's the environment I'm looking for. One where everyone is trying to become their best self, and where that expectation is shared without it needing to be said.
@@ -107,10 +107,10 @@ export default function LookingFor() {
                 Alongside that, I run Empty Labs, where I build and test AI-enabled businesses across B2B and B2C to sharpen my skills at speed.
               </p>
               <p>
-                The thread through all of it is the same: I learn most when I'm operating at the edge of what I know, alongside people who are further along than I am. Every role, every project, every co-founder has taught me that. The best teachers aren't always in classrooms — they're the people next to you who hold a standard you haven't reached yet.
+                The thread through all of it is the same: I learn most when I'm operating at the edge of what I know, alongside people who are further along than I am. Every role, every project, every co-founder has taught me that. The best teachers aren't always in classrooms. They're the people next to you who hold a standard you haven't reached yet.
               </p>
               <p>
-                My north star is to become exceptional — to build companies and tools that have a real impact on the world, and to do it alongside people worth learning from.
+                My north star is to become exceptional: to build companies and tools that have a real impact on the world, and to do it alongside people worth learning from.
               </p>
             </div>
           </div>
