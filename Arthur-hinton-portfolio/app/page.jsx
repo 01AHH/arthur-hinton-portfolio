@@ -4,6 +4,14 @@ import { useState, useEffect } from "react";
 
 const articles = [
   {
+    title: "AI Didn't Make You More Productive, It Made You More Scattered",
+    type: "Key Topic",
+    date: "2026",
+    url: "https://arthurhinton.notion.site/AI-Didn-t-Make-You-More-Productive-It-Made-You-More-Scattered-342312de060380389043faf3b9de84fe",
+    description:
+      "Why AI tools often fragment your focus instead of sharpening it, and how to use them without losing clarity.",
+  },
+  {
     title: "Structures of Team as You Scale",
     type: "Key Topic",
     date: "2026",
