@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const articles = [
   {
-    title: "AI Didn't Make You More Productive, It Made You More Scattered",
+    title: "AI Doesn't Make You More Productive. It Made You More Scattered.",
     type: "Key Topic",
     date: "2026",
     url: "https://arthurhinton.notion.site/AI-Didn-t-Make-You-More-Productive-It-Made-You-More-Scattered-342312de060380389043faf3b9de84fe",
