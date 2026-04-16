@@ -4,6 +4,14 @@ import { useState, useEffect } from "react";
 
 const articles = [
   {
+    title: "Does Work Have A Broken Incentive Problem?",
+    type: "Key Topic",
+    date: "2026",
+    url: "https://arthurhinton.notion.site/Does-Work-Have-A-Broken-Incentive-Problem-344312de0603809b8c99ddb015cf1a9b",
+    description:
+      "Why hourly pay quietly rewards mediocrity, and what leaders should redesign before morale drops.",
+  },
+  {
     title: "AI Doesn't Make You More Productive. It Made You More Scattered.",
     type: "Key Topic",
     date: "2026",
