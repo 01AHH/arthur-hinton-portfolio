@@ -1,3 +1,94 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ---------- Custom cursor (jameserwin.xyz style) ---------- */
+@media (pointer: fine) {
+  /* Hide the native cursor everywhere so only our custom one shows */
+  * {
+    cursor: none !important;
+  }
+}
+
+.cursor-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Brutalist cursor: solid acid square + square outline ring */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #c8ff00;
+  transition: width 0.18s ease, height 0.18s ease, opacity 0.25s ease;
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 2px solid #c8ff00;
+  transition: width 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.24s ease, opacity 0.3s ease;
+}
+
+.cursor-ring--active {
+  width: 56px;
+  height: 56px;
+  background: rgba(200, 255, 0, 0.15);
+}
+
+.cursor-dot--active {
+  width: 0;
+  height: 0;
+}
+
+.cursor-ring--down {
+  width: 26px;
+  height: 26px;
+}
+
+/* ---------- Slider helpers ---------- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Dot-grid background */
+.dot-grid {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.09) 1.2px,
+    transparent 1.2px
+  );
+  background-size: 22px 22px;
+}
+
+/* Brutalist marquee ticker */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 22s linear infinite;
+}
