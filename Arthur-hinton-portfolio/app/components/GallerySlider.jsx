@@ -97,7 +97,7 @@ const companies = [
     url: "/empty-labs",
     external: false,
     description:
-      "A digital product studio. Four businesses across B2B and B2C, run as a testbed for growth at speed.",
+      "We acquire small businesses and rebuild them as service businesses, and build growth strategies for others for a fee.",
   },
   {
     name: "Ascendify",
@@ -493,14 +493,14 @@ const slideBodies = [
     key="empty-labs"
     index={2}
     label="Empty Labs"
-    headline="A digital"
-    accent="product studio."
-    blurb="Four businesses across B2B and B2C, run as one testbed. Each is real, with real customers — and together they let me run the same growth question four different ways at once."
+    headline="Acquire. Rebuild."
+    accent="Grow."
+    blurb="We buy small businesses and rebuild them as service businesses. Alongside that we build growth strategies for other people's companies, and make the introductions that unlock them, for a fee."
     points={[
+      { k: "The Removalist", v: "Final-mile delivery for designer furniture" },
+      { k: "Float Media", v: "High-density advertising on trucks and vans" },
       { k: "Certainty Savings", v: "Automated savings plans toward a business's own services" },
       { k: "A Piece of Cake", v: "AI-summarised meeting notes" },
-      { k: "Float Media", v: "High-density advertising on trucks and vans" },
-      { k: "The Removalist", v: "Final-mile delivery for designer furniture" },
     ]}
     href="/empty-labs"
     cta="Inside Empty Labs →"

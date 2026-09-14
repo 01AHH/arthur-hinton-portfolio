@@ -101,8 +101,9 @@ export default function LookingFor() {
             >
               Empty Labs
             </a>
-            , where I build and test businesses across B2B and B2C to sharpen my
-            skills at speed, and I{" "}
+            , where we acquire small businesses and rebuild them as service
+            businesses, and build growth strategies for other companies for a fee.
+            I also{" "}
             <a
               href="/open-source"
               data-hover
@@ -110,7 +111,7 @@ export default function LookingFor() {
             >
               ship open source tools
             </a>{" "}
-            for the same reason.
+            in my own time.
           </Body>
           <Body>
             The thread through all of it is the same: I learn most when I&apos;m
