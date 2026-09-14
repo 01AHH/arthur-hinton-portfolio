@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: #0a0a0a;
+}
+
 /* ---------- Custom cursor (jameserwin.xyz style) ---------- */
 @media (pointer: fine) {
   /* Hide the native cursor everywhere so only our custom one shows */

@@ -58,6 +58,16 @@ const articles = [
 
 const experience = [
   {
+    company: "InvestorHub",
+    url: "/investorhub",
+    role: "Growth",
+    bullets: [
+      "Growth for a B2B SaaS platform that digitises investor relations for listed companies",
+      "Positioning and messaging for a category most customers have never bought before",
+      "Go-to-market across the ASX and LSE markets, plus the analytics to prove what worked",
+    ],
+  },
+  {
     company: "Slice Pay",
     url: "https://slicepay.travel",
     role: "Growth & Operations",
@@ -84,9 +94,10 @@ const experience = [
 const companies = [
   {
     name: "Empty Labs",
-    url: "https://emptylabs.co/",
+    url: "/empty-labs",
+    external: false,
     description:
-      "Growing multiple AI-enabled businesses across B2B and B2C to test and build growth skills at speed.",
+      "A digital product studio. Four businesses across B2B and B2C, run as a testbed for growth at speed.",
   },
   {
     name: "Ascendify",
@@ -132,6 +143,9 @@ const podcasts = [
 const slides = [
   { id: "intro", label: "Intro" },
   { id: "experience", label: "Experience" },
+  { id: "empty-labs", label: "Empty Labs" },
+  { id: "investorhub", label: "InvestorHub" },
+  { id: "open-source", label: "Open Source" },
   { id: "writing", label: "Writing" },
   { id: "podcasts", label: "Podcasts" },
   { id: "looking", label: "Looking" },
@@ -255,7 +269,7 @@ function IntroSlide() {
           LinkedIn ↗
         </BrutalButton>
         <BrutalButton href="mailto:arthur.h.hinton@gmail.com">Get in touch</BrutalButton>
-        <BrutalButton href="/looking-for">What I'm looking for →</BrutalButton>
+        <BrutalButton href="/open-source">Open source →</BrutalButton>
       </div>
       <p className="mt-9 font-mono text-[11px] uppercase tracking-[0.2em] text-white/30">
         [ Drag · Scroll · ← → ] to navigate
@@ -275,8 +289,9 @@ function ExperienceSlide() {
               <h3 className="font-mono font-bold uppercase tracking-wide text-white">
                 <a
                   href={job.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(job.url.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   data-hover
                   className="hover:text-acid transition-colors"
                 >
@@ -309,8 +324,9 @@ function ExperienceSlide() {
               <div key={c.name} className="text-sm">
                 <a
                   href={c.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(c.url.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   data-hover
                   className="font-mono font-bold text-white hover:text-acid transition-colors"
                 >
@@ -366,10 +382,46 @@ function CardListSlide({ index, label, items, secondaryKey }) {
   );
 }
 
+/* A teaser slide that fronts one of the long-form pages. */
+function FeatureSlide({ index, label, headline, accent, blurb, points, href, cta }) {
+  return (
+    <Panel>
+      <SectionLabel index={index}>{label}</SectionLabel>
+      <h2 className="font-mono text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mb-6 leading-[0.95]">
+        {headline}
+        <br />
+        <span className="text-acid">{accent}</span>
+      </h2>
+      <div className="max-h-[42vh] overflow-y-auto no-scrollbar pr-1">
+        <p className="text-white/70 leading-relaxed mb-6">{blurb}</p>
+        <ul className="space-y-2.5">
+          {points.map((pt) => (
+            <li key={pt.k} className="text-sm flex gap-2.5">
+              <span className="text-acid shrink-0">&gt;</span>
+              <span>
+                <span className="font-mono font-bold uppercase tracking-wide text-white">
+                  {pt.k}
+                </span>
+                <span className="text-acid mx-2">//</span>
+                <span className="text-white/55">{pt.v}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-7">
+        <BrutalButton href={href} primary>
+          {cta}
+        </BrutalButton>
+      </div>
+    </Panel>
+  );
+}
+
 function LookingSlide() {
   return (
     <Panel>
-      <SectionLabel index={4}>What I'm Looking For</SectionLabel>
+      <SectionLabel index={7}>What I'm Looking For</SectionLabel>
       <h2 className="font-mono text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mb-6">
         The best people<br />in the world.
       </h2>
@@ -402,7 +454,7 @@ function LookingSlide() {
 function ContactSlide() {
   return (
     <div className="flex flex-col items-start max-w-xl">
-      <SectionLabel index={5}>Contact</SectionLabel>
+      <SectionLabel index={8}>Contact</SectionLabel>
       <h2 className="font-mono text-4xl sm:text-6xl font-extrabold uppercase tracking-tight text-white mb-6 leading-[0.95]">
         Let's build<br />
         <span className="text-acid">something.</span>
@@ -437,8 +489,55 @@ function ContactSlide() {
 const slideBodies = [
   <IntroSlide key="intro" />,
   <ExperienceSlide key="experience" />,
-  <CardListSlide key="writing" index={2} label="Writing" items={articles} secondaryKey="type" />,
-  <CardListSlide key="podcasts" index={3} label="Podcasts & PR" items={podcasts} secondaryKey="show" />,
+  <FeatureSlide
+    key="empty-labs"
+    index={2}
+    label="Empty Labs"
+    headline="A digital"
+    accent="product studio."
+    blurb="Four businesses across B2B and B2C, run as one testbed. Each is real, with real customers — and together they let me run the same growth question four different ways at once."
+    points={[
+      { k: "Certainty Savings", v: "Automated savings plans toward a business's own services" },
+      { k: "A Piece of Cake", v: "AI-summarised meeting notes" },
+      { k: "Float Media", v: "High-density advertising on trucks and vans" },
+      { k: "The Removalist", v: "Final-mile delivery for designer furniture" },
+    ]}
+    href="/empty-labs"
+    cta="Inside Empty Labs →"
+  />,
+  <FeatureSlide
+    key="investorhub"
+    index={3}
+    label="InvestorHub"
+    headline="Digitising"
+    accent="investor relations."
+    blurb="A listed company has thousands of people who own a piece of it and almost no direct way to speak to them. InvestorHub closes that gap, then makes the result measurable. I work in Growth there."
+    points={[
+      { k: "Communication", v: "Investor hubs, announcements and webinars, owned end to end" },
+      { k: "Data", v: "Registry analytics that tie IR activity to what the register does" },
+      { k: "Markets", v: "ASX first, London Stock Exchange second" },
+    ]}
+    href="/investorhub"
+    cta="What InvestorHub does →"
+  />,
+  <FeatureSlide
+    key="open-source"
+    index={4}
+    label="Open Source"
+    headline="Tools I wanted,"
+    accent="so I built them."
+    blurb="Seven public projects. Native Mac apps, developer tools and one essay that only works because you can run it. All local-first: no accounts, no telemetry, nothing leaving the machine."
+    points={[
+      { k: "Wisp", v: "Hold a key, talk, let go — on-device dictation anywhere" },
+      { k: "SnapMark", v: "CleanShot-style capture and markup, native Swift" },
+      { k: "LiveWall", v: "Live video wallpapers behind your desktop icons" },
+      { k: "AI Ladder", v: "Eight steps from prompting to agent systems" },
+    ]}
+    href="/open-source"
+    cta="All seven projects →"
+  />,
+  <CardListSlide key="writing" index={5} label="Writing" items={articles} secondaryKey="type" />,
+  <CardListSlide key="podcasts" index={6} label="Podcasts & PR" items={podcasts} secondaryKey="show" />,
   <LookingSlide key="looking" />,
   <ContactSlide key="contact" />,
 ];
@@ -458,6 +557,23 @@ export default function GallerySlider() {
     (i) => setIndex(Math.max(0, Math.min(count - 1, i))),
     [count]
   );
+
+  // Deep links (/#investorhub) from the nav on the long-form pages.
+  useEffect(() => {
+    const fromHash = () => {
+      const id = window.location.hash.slice(1);
+      const i = slides.findIndex((s) => s.id === id);
+      if (i >= 0) setIndex(i);
+    };
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+    return () => window.removeEventListener("hashchange", fromHash);
+  }, []);
+
+  useEffect(() => {
+    const { pathname, search } = window.location;
+    window.history.replaceState(null, "", `${pathname}${search}#${slides[index].id}`);
+  }, [index]);
 
   useEffect(() => {
     const measure = () => setWidth(window.innerWidth);
@@ -536,13 +652,13 @@ export default function GallerySlider() {
           >
             ARTHUR_HINTON<span className="text-acid">.</span>
           </button>
-          <nav className="hidden sm:flex items-center gap-1.5">
+          <nav className="hidden lg:flex items-center gap-1">
             {slides.map((s, i) => (
               <button
                 key={s.id}
                 onClick={() => goTo(i)}
                 data-hover
-                className={`font-mono text-[11px] font-bold uppercase tracking-widest px-2 py-1 transition-colors ${
+                className={`font-mono text-[10px] font-bold uppercase tracking-widest px-1.5 py-1 transition-colors ${
                   i === index
                     ? "bg-acid text-black"
                     : "text-white/45 hover:text-acid"
@@ -610,7 +726,7 @@ export default function GallerySlider() {
       {/* Bottom progress */}
       <footer className="absolute bottom-0 left-0 right-0 z-30 border-t-2 border-white bg-ink/80 backdrop-blur">
         <div className="flex items-center justify-between px-6 sm:px-10 py-3.5">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {slides.map((s, i) => (
               <button
                 key={s.id}
@@ -620,7 +736,7 @@ export default function GallerySlider() {
                 className="group py-2"
               >
                 <span
-                  className={`block w-6 h-3 border-2 transition-all duration-300 ${
+                  className={`block w-4 sm:w-6 h-3 border-2 transition-all duration-300 ${
                     i === index
                       ? "bg-acid border-acid"
                       : "border-white/40 group-hover:border-acid"
