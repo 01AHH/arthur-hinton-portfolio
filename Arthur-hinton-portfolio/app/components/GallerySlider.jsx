@@ -526,15 +526,15 @@ const slideBodies = [
     label="Open Source"
     headline="Tools I wanted,"
     accent="so I built them."
-    blurb="Seven public projects. Native Mac apps, developer tools and one essay that only works because you can run it. All local-first: no accounts, no telemetry, nothing leaving the machine."
+    blurb="Eight public projects. Native Mac apps, working tools and one essay that only works because you can run it. All local-first: no accounts, no telemetry, nothing leaving the machine."
     points={[
       { k: "Wisp", v: "Hold a key, talk, let go — on-device dictation anywhere" },
       { k: "SnapMark", v: "CleanShot-style capture and markup, native Swift" },
-      { k: "LiveWall", v: "Live video wallpapers behind your desktop icons" },
+      { k: "LocalFrog", v: "A local-first SEO crawler and auditor" },
       { k: "AI Ladder", v: "Eight steps from prompting to agent systems" },
     ]}
     href="/open-source"
-    cta="All seven projects →"
+    cta="All eight projects →"
   />,
   <CardListSlide key="writing" index={5} label="Writing" items={articles} secondaryKey="type" />,
   <CardListSlide key="podcasts" index={6} label="Podcasts & PR" items={podcasts} secondaryKey="show" />,

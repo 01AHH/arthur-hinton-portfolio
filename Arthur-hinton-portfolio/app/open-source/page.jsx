@@ -10,7 +10,7 @@ import PageShell, {
 export const metadata = {
   title: "Open Source — Arthur Hinton",
   description:
-    "Small, local-first macOS and web tools I've built and open sourced: Wisp, SnapMark, LiveWall, ai-ladder and more.",
+    "Small, local-first macOS and web tools I've built and open sourced: Wisp, SnapMark, LocalFrog, LiveWall, ai-ladder and more.",
 };
 
 const groups = [
@@ -46,10 +46,18 @@ const groups = [
     ],
   },
   {
-    label: "Developer tools",
+    label: "Working tools",
     blurb:
-      "Things that sand down a rough edge in how I work rather than trying to be products.",
+      "Things that sand down a rough edge in how I actually work — growth and engineering both — rather than trying to be products.",
     projects: [
+      {
+        name: "LocalFrog",
+        url: "https://github.com/01AHH/SEO-FROG-Opensource",
+        meta: "Python · Web + Mac app",
+        tags: ["Python", "SEO", "Local-first"],
+        description:
+          "A local-first SEO crawler and auditor — a personal replacement for Screaming Frog. Point it at a site you own and it crawls politely, pulls the technical signals search engines care about, then explains what is wrong in priority order with the evidence behind each finding. Exports CSVs, a self-contained HTML report and a manifest of the exact crawl settings. Nothing leaves the machine except the requests to your own site.",
+      },
       {
         name: "claude-waiting-menubar",
         url: "https://github.com/01AHH/claude-waiting-menubar",
@@ -115,11 +123,11 @@ export default function OpenSource() {
       ticker={[
         "Wisp",
         "SnapMark",
+        "LocalFrog",
         "LiveWall",
         "AI Ladder",
         "Spectra",
         "Local-First",
-        "Swift",
       ]}
     >
       <Eyebrow index={3}>Open Source</Eyebrow>
@@ -134,9 +142,10 @@ export default function OpenSource() {
 
       <div className="space-y-5 mb-10">
         <Lede>
-          Seven projects, all public. None of them are trying to be a startup. Each
-          one exists because something I used every day was either subscription-priced,
-          sending my data somewhere, or simply didn&apos;t exist.
+          Eight projects, all public. None of them are trying to be a startup.
+          Each one exists because something I used every day was either
+          subscription-priced, sending my data somewhere, or simply didn&apos;t
+          exist.
         </Lede>
         <Body>
           I&apos;m not a full-time engineer, which is rather the point: these are what
